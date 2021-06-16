@@ -7,5 +7,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //
+    /**
+     * Admin Homepage
+    */
+    public function index(){
+        return view('admin.home');
+    }
 }

@@ -22,5 +22,13 @@ Auth::routes();
 
 //Auth::routes(['register' => false]);
 
-//login
-Route::get('/admin', 'HomeController@index')->name('home');
+
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->name('admin.')
+    ->group(function(){
+        
+        //rotta per l'admin home
+        Route::get('/admin', 'HomeController@index')->name('home');
+    });
