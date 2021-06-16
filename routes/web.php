@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.welcome');
-});
 
 //auenticazione
 Auth::routes();
@@ -31,6 +28,12 @@ Route::prefix('admin')
         
         //rotta per l'admin home
         Route::get('/', 'HomeController@index')->name('home');
-
+        
         Route::resource('/posts', 'PostController');
     });
+
+
+// Front Office
+Route::get('{any?}', function () {
+    return view('guest.welcome');
+})->where("any", ".*");

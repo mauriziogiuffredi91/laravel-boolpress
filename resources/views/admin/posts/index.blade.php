@@ -22,7 +22,11 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->title}}</td>
-                        <td>SHOW</td>
+                        <td>
+                            
+                            <a class="btn btn-success" href="{{route('admin.posts.show', $item->id )}}">SHOW</a>
+                        
+                        </td>
                         <td>EDIT</td>
                         <td>DELETE</td>
                     </tr>
