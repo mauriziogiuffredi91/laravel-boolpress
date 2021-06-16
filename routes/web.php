@@ -30,5 +30,7 @@ Route::prefix('admin')
     ->group(function(){
         
         //rotta per l'admin home
-        Route::get('/admin', 'HomeController@index')->name('home');
+        Route::get('/', 'HomeController@index')->name('home');
+
+        Route::resource('/posts', 'PostController');
     });
