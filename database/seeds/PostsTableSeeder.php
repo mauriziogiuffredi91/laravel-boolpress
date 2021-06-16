@@ -23,7 +23,7 @@ class PostsTableSeeder extends Seeder
             $new_post->title = $faker->text(100);
             $new_post->slug = Str::slug($new_post->title, '-');
             $new_post->content = $faker->paragraphs(2, true);
-            $new_post->author = '';
+            
 
             //3 save
             $new_post->save();

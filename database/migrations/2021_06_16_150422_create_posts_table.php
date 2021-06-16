@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title', 100);
             $table->string('slug');
             $table->text('content');
-            $table->string('author', 80);
+            //$table->string('author', 80);
             $table->timestamps();
             
 
@@ -33,6 +33,9 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        //Schema::dropIfExists('posts');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('author');
+        });
     }
 }
