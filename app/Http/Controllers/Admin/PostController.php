@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Post;
 
 class PostController extends Controller
@@ -40,9 +41,18 @@ class PostController extends Controller
     {
         //validazione
 
+        $data = $request->all();
+
         //generazione dello slug 
+        $data['slug'] = Str::slug($data['title'], '-');
+
 
         //creazione e salvataggio del record
+        $new_post = new Post();
+        $new_post->fill($data); //fillable
+
+        $new_post->save();
+
     }
 
     /**
