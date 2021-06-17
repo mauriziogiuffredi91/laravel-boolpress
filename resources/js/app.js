@@ -9,9 +9,9 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 //vue instance
-import App from ' /App.vue';
+import App from ' ./App.vue';
 
-const route = new Vue({
+const root = new Vue({
     el: '#root',
     render: h => h(App)
 });
