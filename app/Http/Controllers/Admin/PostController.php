@@ -38,7 +38,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validazione
+
+        //generazione dello slug 
+
+        //creazione e salvataggio del record
     }
 
     /**

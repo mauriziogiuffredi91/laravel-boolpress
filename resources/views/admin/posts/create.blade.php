@@ -11,17 +11,22 @@
 
 
 
-            <form>
+            <form action="{{route('admin.posts.store')}}" method="POST">
+                @csrf
+                @method('POST')
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Title</label>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+                  <label class="form-label" for="title">Title*</label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Title">
                 </div>
                 
                 
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Post area</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <label class="form-label" for="content">Post area*</label>
+                  <textarea class="form-control" id="content" rows="3" name="content"></textarea>
                 </div>
+
+
+                <button type="submit" class="btn btn-dark">create</button>
             </form>
         </div>
     </div>
