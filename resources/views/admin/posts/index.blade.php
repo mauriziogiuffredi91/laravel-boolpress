@@ -4,6 +4,8 @@
 
     <div class="container">
         <h1>My Post</h1>
+
+        <a class="btn btn-secondary m-5" href="{{route('admin.posts.create')}}">Create new Message</a>
  
         <table class="table">
             <thead>
