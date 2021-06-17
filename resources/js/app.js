@@ -4,14 +4,28 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
-//vue instance
-import App from ' ./App.vue';
+// //vue instance
+// import Vue from "vue";
+// import App from ' ./App.vue';
+
+// const root = new Vue({
+//     el: '#root',
+//     render: h => h(App)
+// });
+//errore sugli apici, vi vogliono le virgolette
+
+require("./bootstrap");
+
+window.Vue = require("vue");
+
+import Vue from "vue";
+import App from "./App.vue";
 
 const root = new Vue({
-    el: '#root',
+    el: "#root",
     render: h => h(App)
 });
