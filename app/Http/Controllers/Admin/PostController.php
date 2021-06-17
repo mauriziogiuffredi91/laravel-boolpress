@@ -53,6 +53,8 @@ class PostController extends Controller
 
         $new_post->save();
 
+        return redirect()->route('admin.posts.show', $new_post->id);
+
     }
 
     /**
