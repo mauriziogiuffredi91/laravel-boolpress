@@ -35,5 +35,5 @@ Route::prefix('admin')
 
 // Front Office
 Route::get('{any?}', function () {
-    return view('guest.welcome');
+    return view('guest.home');
 })->where("any", ".*");
