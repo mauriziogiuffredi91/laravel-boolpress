@@ -28,6 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
+
+
         return view('admin.posts.create');
     }
 
@@ -40,6 +42,15 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //validazione
+        $request -> validate([
+            'title'=>'required| unique:posts| max:26',
+            'content'=>'required | max:500',
+        ], [
+            'required'=>'The :attribute is required',
+            'unique'=> 'The :attribute is already taken',
+            'max'=> 'You reached the limit of :max characters '
+
+        ]);
 
         $data = $request->all();
 
