@@ -29,7 +29,9 @@
                             <a class="btn btn-success" href="{{route('admin.posts.show', $item->id )}}">SHOW</a>
                         
                         </td>
-                        <td>EDIT</td>
+                        <td>
+                            <a class="btn btn-warning" href="{{route('admin.posts.edit', $item->id)}}">EDIT</a>
+                        </td>
                         <td>DELETE</td>
                     </tr>
                     

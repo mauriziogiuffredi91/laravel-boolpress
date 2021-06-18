@@ -93,7 +93,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        if (! $post) {
+            abort(404);
+        }
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -105,7 +110,32 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //valide
+        $request -> validate([
+            'title'=>'required| unique:posts| max:26',
+            'content'=>'required | max:500',
+        ], [
+            'required'=>'The :attribute is required',
+            'unique'=> 'The :attribute is already taken',
+            'max'=> 'You reached the limit of :max characters '
+
+        ]);
+        
+        //continuare da questo punto 
+
+
+        $data = $request->all();
+
+        $post = Post::find($id);
+
+        //gen slug
+        if ($data['title'] != $post->title) {
+            $data['slug'] = Str::slug($data['title'], '-');
+            # code...
+        }
+        $post->update($data); //fillable
+
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**

@@ -12,7 +12,7 @@
       <div class="col-md-8 offset-md-2">
 
 
-        @if ($errors->all())
+        {{-- @if ($errors->any())
 
         <div class=" m-5 alert alert-danger">
 
@@ -26,7 +26,7 @@
           </ul>
         </div>
           
-        @endif
+        @endif --}}
 
 
         <form action="{{route('admin.posts.store')}}" method="POST">
@@ -36,7 +36,7 @@
               <label class="form-label" for="title">Title*</label>
               <input type="text" class="form-control @error('title')
                 is-invalid
-              @enderror" id="title" name="title" placeholder="Title">
+              @enderror" id="title" name="title" placeholder="Title" value="{{old('title')}}">
             </div>
 
             @error('title')
@@ -47,7 +47,7 @@
               <label class="form-label" for="content">Post area*</label>
               <textarea class="form-control @error('content')
                 is-invalid
-              @enderror" id="content" rows="3" name="content" placeholder="Text here"></textarea>
+              @enderror" id="content" rows="3" name="content" placeholder="Text here" >{{old('content')}}</textarea>
             </div>
 
             @error('title')
