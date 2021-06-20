@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use App\Post;
 
 class PostController extends Controller
@@ -112,7 +113,11 @@ class PostController extends Controller
     {
         //valide
         $request -> validate([
-            'title'=>'required| unique:posts| max:26',
+            'title'=>[
+                'required',
+                Rule::unique('posts')->ignore($id),
+                'max: 255',
+            ],
             'content'=>'required | max:500',
         ], [
             'required'=>'The :attribute is required',
@@ -121,7 +126,7 @@ class PostController extends Controller
 
         ]);
         
-        //continuare da questo punto 
+        
 
 
         $data = $request->all();
@@ -146,6 +151,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')->with('deleted', $post->title);
     }
 }
