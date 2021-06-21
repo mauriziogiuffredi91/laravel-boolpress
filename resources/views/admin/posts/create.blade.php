@@ -54,6 +54,13 @@
               <p class="text-danger">{{$message}}</p>
             @enderror 
 
+            <div class="mb-3">
+              <label for="category_id">Category</label>
+              <select class="form-control" name="category_id" id="category_id">
+                <option value="">Selection</option>
+              </select>
+            </div>
+
 
             <button type="submit" class="btn btn-dark">create</button>
         </form>
