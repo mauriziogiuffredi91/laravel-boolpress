@@ -19,8 +19,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::paginate(6);
+        $categories = Category::all();
 
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts', 'categories'));
     }
 
     /**
@@ -98,10 +99,12 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
+        $categories = Category::all();
+
         if (! $post) {
             abort(404);
         }
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -121,6 +124,7 @@ class PostController extends Controller
                 'max: 255',
             ],
             'content'=>'required | max:500',
+            'category_id'=>'nullable| exists:categories,id'
         ], [
             'required'=>'The :attribute is required',
             'unique'=> 'The :attribute is already taken',
