@@ -25,6 +25,7 @@ class CreatePostTagTable extends Migration
                 ->on('post')
                 ->onDelete('cascade');
 
+
             //Foreign Key Tag
             $table->unsignedBigInteger('tag_id');
 
