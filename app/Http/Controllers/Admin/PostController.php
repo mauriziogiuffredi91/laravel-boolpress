@@ -62,7 +62,7 @@ class PostController extends Controller
         ]);
 
         $data = $request->all();
-        dd($data);
+        //dd($data);
 
         //generazione dello slug 
         $data['slug'] = Str::slug($data['title'], '-');
@@ -73,6 +73,11 @@ class PostController extends Controller
         $new_post->fill($data); //fillable
 
         $new_post->save();
+
+        //Salva relation with tags in the Pivot table
+        if (array_key_exists('tags', $data)) {
+            $new_post->tags()->attach($data['tags']);
+        }
 
         return redirect()->route('admin.posts.show', $new_post->id);
 
@@ -107,10 +112,12 @@ class PostController extends Controller
 
         $categories = Category::all();
 
+        $tags = Tag::all();
+
         if (! $post) {
             abort(404);
         }
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -130,7 +137,8 @@ class PostController extends Controller
                 'max: 255',
             ],
             'content'=>'required | max:500',
-            'category_id'=>'nullable| exists:categories,id'
+            'category_id'=>'nullable| exists:categories,id',
+            'tags' => 'nullable|exists:tags,id',
         ], [
             'required'=>'The :attribute is required',
             'unique'=> 'The :attribute is already taken',
@@ -148,9 +156,17 @@ class PostController extends Controller
         //gen slug
         if ($data['title'] != $post->title) {
             $data['slug'] = Str::slug($data['title'], '-');
-            # code...
+            
         }
         $post->update($data); //fillable
+
+        //Aggiorna relation tabel pivot
+        if (array_key_exists('tags', $data)) {
+            //aggiungere records
+            $post->tags()->sync($data['tags']);
+        } else{
+            $post->tags()->detach();
+        }
 
         return redirect()->route('admin.posts.show', $post->id);
     }
@@ -164,6 +180,11 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        //tab pivot
+        $post->tags()->detach();
+
+
         $post->delete();
 
         return redirect()->route('admin.posts.index')->with('deleted', $post->title);
