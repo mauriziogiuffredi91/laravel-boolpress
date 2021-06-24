@@ -81,6 +81,38 @@
               @enderror
             </div>
 
+            {{-- tags --}}
+            <h4>Tags</h4>
+            <div class="mb-3">
+              @foreach ($tags as $tag)
+                <span class="d-inline-block mr-3">
+                  <input type="checkbox" name="tags[]" id="tag{{$loop->iteration }}"
+                    value="{{$tag->id}}" 
+                    @if (in_array($tag->id, old('tags', [])))
+                      {{-- l'inserimento di un array vuoto è dovuto alla ricerca iniziale di un array che non esiste, poi controlla quello che c'è --}}
+                      checked
+                    @endif
+                  
+                  
+                  >
+                  <label for="tag{{$loop->iteration }}">
+                     
+                    
+                  
+                    {{$tag->name}}
+                  </label>
+                </span>
+                  
+              @endforeach
+
+              @error('tags')
+                <div>
+                  {{$message}}
+                </div>
+                
+              @enderror
+            </div>
+
 
             <button type="submit" class="btn btn-dark">create</button>
         </form>

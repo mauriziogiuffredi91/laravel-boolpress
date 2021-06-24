@@ -22,7 +22,7 @@ class CreatePostTagTable extends Migration
 
             $table->foreign('post_id')
                 ->references('id')
-                ->on('post')
+                ->on('posts')
                 ->onDelete('cascade');
 
 
