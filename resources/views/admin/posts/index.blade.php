@@ -20,6 +20,7 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Date</th>
                     <th colspan="3">Actions</th>
 
 
@@ -33,6 +34,11 @@
                         <td>{{$item->id}}</td>
                         <td>{{$item->title}}</td>
                         <td>@if ($item->category) {{$item->category->name}}@endif </td>
+
+                        <td>
+                            <div>{{$item->created_at->format('l d/m/y')}}</div>
+                            <div>{{$item->created_at->diffForHumans()}}</div>
+                        </td>
                             
                         
                         <td>
