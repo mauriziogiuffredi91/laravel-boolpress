@@ -7,8 +7,18 @@
 
         <nav>
             <ul>
-                <li><a href="">Blog</a></li>
-                <li><a href="">About</a></li>
+                <li>
+                    
+                    <router-link :to="{name: 'home'}">Home</router-link>
+                    
+                </li>
+                <li>
+                    <router-link :to="{name: 'blog'}">Blog</router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{name: 'about'}">About</router-link>
+                </li>
             </ul>
         </nav>
     </header>
@@ -17,7 +27,7 @@
 <script>
 
 export default {
-    name: 'Header',
+    name: 'Header', 
 }
 
 
@@ -26,6 +36,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+header{
+    background: lightblue;
+
+}
+
+.active{
+    //color: dodgerblue;
+    font-size: 30px;
+}
 
     
 

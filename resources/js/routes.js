@@ -6,13 +6,16 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 //componenti per le pagine
-import Home from './pages/Home.vue'
-import About from './pages/About.vue'
+import Home from './pages/Home.vue';
+import About from './pages/About.vue';
+import Blog from './pages/Blog.vue';
+import NotFound from './pages/NotFound.vue';
 
 
 //Def rotte app
 const router = new VueRouter({
     mode: 'history',
+    linkExactActiveClass: 'active',
     routes: [
         {
             path: '/',
@@ -23,6 +26,15 @@ const router = new VueRouter({
             path: '/about',
             name: 'about',
             component: About,
+        },
+        {
+            path: '/blog',
+            name: 'blog',
+            component: Blog,
+        },
+        {
+            path: '*',
+            component: NotFound,
         }
 
     ]
