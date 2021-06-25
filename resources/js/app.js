@@ -23,10 +23,12 @@
 window.Vue = require("vue");
 //window.axios = require("axios");
 
-import Vue from "vue";
+//import Vue from "vue";
 import App from "./App.vue";
+import router from "./routes.js";
 
 const root = new Vue({
     el: "#root",
+    router, //shortcut
     render: h => h(App)
 });
