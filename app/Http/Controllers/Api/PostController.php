@@ -20,5 +20,11 @@ class PostController extends Controller
 
         return response()->json($posts);
 
+        
+    }
+    //Get Post Detail by slug
+
+    public function show($slug) {
+        dump($slug);
     }
 }
