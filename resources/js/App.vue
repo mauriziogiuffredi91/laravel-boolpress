@@ -25,6 +25,8 @@ export default{
 
 <style lang="scss">
 @import '../sass/frontoffice/_utilities.scss';
+@import '../sass/frontoffice/_default.scss';
+
 
 body{
     font-family: Arial, Helvetica, sans-serif;

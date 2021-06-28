@@ -2015,6 +2015,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header'
 });
@@ -2345,7 +2349,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container {\n  max-width: 1180px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background: lightblue;\n}", ""]);
+exports.push([module.i, ".container {\n  max-width: 1180px;\n  margin: 0 auto;\n}\nli {\n  list-style: none;\n  margin-right: 15px;\n}\na {\n  text-decoration: none;\n}\nbody {\n  background-image: url(\"https://images.pexels.com/photos/673648/pexels-photo-673648.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\");\n  background-repeat: no-repeat;\n  background-size: cover;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background: lightblue;\n}", ""]);
 
 // exports
 
@@ -2364,7 +2368,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header[data-v-1f42fb90] {\n  background: lightblue;\n}\n.active[data-v-1f42fb90] {\n  font-size: 30px;\n}", ""]);
+exports.push([module.i, "header[data-v-1f42fb90] {\n  background-color: #0f0e17;\n  padding: 15px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\nh1[data-v-1f42fb90] {\n  color: whitesmoke;\n}\nheader ul[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nheader a[data-v-1f42fb90] {\n  color: whitesmoke;\n}\n.active[data-v-1f42fb90] {\n  font-size: 30px;\n}", ""]);
 
 // exports
 
@@ -3637,7 +3641,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", [
-    _c("a", { attrs: { href: "" } }, [_vm._v("\n\n        Boolpress\n    ")]),
+    _c("h1", [_vm._v("Boolpress")]),
     _vm._v(" "),
     _c("nav", [
       _c("ul", [
