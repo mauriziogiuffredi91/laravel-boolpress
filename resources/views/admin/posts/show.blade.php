@@ -12,13 +12,13 @@
 
         
         <div class="mb-5">
-            <a class="btn btn-success" href="{{ 'admin.posts.edit', $post->id}}">Edit post</a>
+            <a class="btn btn-success" href="{{ route('admin.posts.edit', $post->id)}}">Edit post</a>
         </div>
 
         <div>{{$post->content}}</div>
 
         {{-- Post Tags --}}
-        @dump($post->tags)
+        
         @if (count($post->tags) > 0)
             <h4>Tags</h4>
 
