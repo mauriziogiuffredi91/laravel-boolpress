@@ -6,13 +6,17 @@
             <h1>{{post.title}} </h1>
 
             <div class="post-info">
+                
+                <div class="box-category">
 
-                <span>{{post.category.name}}</span>
-                <!-- <span v-for="tag in post.tags" :key="`tag-${tag.id}`" class="tag">
-                    {{tag.name}}    
-                </span>  -->
+                    <span v-if="post.category">{{post.category.name}}</span>
+                    <Tags :tags="post.tags"/>
 
-                <Tags :tags="post.tags"/>
+                </div>
+
+
+                
+
             </div>
 
             <div>{{post.content}}</div>
@@ -63,5 +67,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    
+    .box-category{
+        display: flex;
+        align-items: center;
+    }
 </style>

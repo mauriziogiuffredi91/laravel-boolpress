@@ -21,14 +21,14 @@ export default {
 
     .tags{
         display: inline-block;
-    }
-    .tag{
-        display: inline-block;
-        margin: .25rem;
-        padding: 0.25rem;
-        font-size: .75rem;
-        background: lightblue;
-        border-radius: 20px;
+        .tag{
+            display: inline-block;
+            margin: .25rem;
+            padding: 0.25rem;
+            font-size: .75rem;
+            background: dodgerblue;
+            border-radius: 20px;
 
+        }
     }
 </style>
