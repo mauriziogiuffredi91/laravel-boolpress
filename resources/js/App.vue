@@ -1,12 +1,17 @@
 <template>
-    <div>
+    <v-app>
+        
+
         <Header />
 
         <main>
-           <!-- Component matched by the route will render -->
-           <router-view></router-view>
+        <!-- Component matched by the route will render -->
+        <router-view></router-view>
         </main>
-    </div>
+
+
+        
+    </v-app>
 </template>
 
 <script>
@@ -26,11 +31,17 @@ export default{
 <style lang="scss">
 @import '../sass/frontoffice/_utilities.scss';
 @import '../sass/frontoffice/_default.scss';
+@import '~vuetify/dist/vuetify.min.css';
 
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
+
+#app{
+    background-image: url('https://images.pexels.com/photos/673648/pexels-photo-673648.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')!important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+   
 }
+
 
 .navigation{
     .active-page{
